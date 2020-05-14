@@ -4,6 +4,10 @@ local settings = Settings(minetest.get_modpath("quartz").."/settings.txt")
 local MP = minetest.get_modpath(minetest.get_current_modname())
 local S, NS = dofile(MP.."/intllib.lua")
 
+default = {}
+default.node_sound_stone_defaults = function () return music.sounds.nodes.stone end
+default.node_sound_glass_defaults = function () return music.sounds.nodes.glass end
+
 --
 --  Item Registration
 --
@@ -25,7 +29,7 @@ minetest.register_craftitem("quartz:quartz_crystal_piece", {
 --  Ore
 minetest.register_node("quartz:quartz_ore", {
 	description = S("Quartz Ore"),
-	tiles = {"default_stone.png^quartz_ore.png"},
+	tiles = {"stone_stone.png^quartz_ore.png"},
 	groups = {cracky=3, stone=1},
 	drop = 'quartz:quartz_crystal',
 	sounds = default.node_sound_stone_defaults(),
